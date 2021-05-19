@@ -1,0 +1,28 @@
+﻿<Page x:Class="Automata.NavigationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Automata"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NavigationPage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+            <Button Content="Примеры" Height="40" Width="300" Margin="0 10 0 10"
+                    Name="buttonExample" Click="buttonExample_Click"/>
+            <Button Content="Тренировка" Height="40" Width="300" Margin="0 10 0 10"
+                    Name="buttonTraining" Click="buttonTraining_Click"/>
+            <Button Content="Контроль" Height="40" Width="300" Margin="0 10 0 10"
+                    Name="buttonControl" Click="buttonControl_Click"/>
+            <Button Content="Теория" Height="40" Width="300" Margin="0 10 0 10"
+                    Name="buttonTheory" Click="buttonTheory_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

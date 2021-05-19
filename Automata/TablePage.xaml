@@ -1,0 +1,63 @@
+﻿<Page x:Class="Automata.TablePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Automata" xmlns:wpfgrapgcontrol="http://mlsagl"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1200"
+      Title="TablePage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" MinHeight="100"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Пример построения автомата распознавателя по регулярному выражению. В правом углу экрана будет построена таблица переходов автомата. В нижней части экрана во вкладке до минимизации будет построен граф автомата до минимизаци, граф автомата после минимизации будет доступен во вкладке после минимизации."
+                           TextWrapping="Wrap" Margin="5 5 5 5" FontSize="12"/>
+                <TextBlock Text="Введите регулярное выражение. Допустимые символы a-z, *, (, ), |" 
+                           Margin="5 5 5 5" FontSize="14"/>
+                <TextBox x:Name="RegexTextBox" Margin="5 0 5 5" FontSize="14"/>
+                <Button Content="Построить автомат" Name="RegexButton"
+                        Click="RegexButton_Click" Margin="50 0 50 0" FontSize="14"/>
+                <Label Content="Введите слово для распознавания" FontSize="14"/>
+                <TextBox x:Name="wordRegexTextBox" Margin="5 0 5 5" FontSize="14"/>
+                <Button Content="Проверить слово" Name="RegexButtonCheckWord" 
+                        Margin="50 0 50 0" Click="RegexButtonCheckWord_Click"
+                        FontSize="14"/>
+            </StackPanel>
+            <DataGrid Grid.Column="1" x:Name="AutomataTable" Background="White" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            </DataGrid>
+        </Grid>
+        <Border Grid.Row="0" BorderBrush="#61738B" BorderThickness="1" />
+        <TabControl Grid.Row="1" x:Name="tabControl">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">До минимизации</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Frame x:Name="frameNoMinimazeGraph"/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">После минимизации</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Frame x:Name="frameMinimazeGraph"/>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+        <Border Grid.Row="1" BorderBrush="#61738B" BorderThickness="1" />
+    </Grid>
+</Page>

@@ -1,0 +1,100 @@
+﻿<Page x:Class="Automata.TasksPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Automata"
+      xmlns:wpfgrapgcontrol="http://mlsagl"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1200"
+      Title="TasksPage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock x:Name="textBlockTask" Text="Описание задачи" TextWrapping="Wrap" FontSize="14"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75*"/>
+                        <ColumnDefinition Width="25*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Frame x:Name="graphFrame"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30px"/>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="30px"/>
+                                <RowDefinition Height="3*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Label Content="Таблица переходов"/>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <DataGrid x:Name="transitionTable" HorizontalGridLinesBrush="DarkGray" 
+                                          RowBackground="LightGray" AlternatingRowBackground="White"
+                                          ItemsSource="{Binding}"/>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Button x:Name="buttonCheckTransitionTable" Content="Проверить" 
+                                        Margin="20 3 20 3" Click="buttonCheckTransitionTable_Click" FontSize="14"/>
+                            </Grid>
+                            <Grid Grid.Row="3">
+                                <StackPanel>
+                                    <Label Content="Состояние после обработки слова" FontSize="14"/>
+                                    <TextBox x:Name="textBoxState" FontSize="16"/>
+                                    <Button x:Name="buttonStateCheck" Content="Проверить"
+                                            Click="buttonStateCheck_Click" Margin="25 3 25 3" FontSize="14"/>
+                                    <TextBlock x:Name="textBlockQuestion" TextWrapping="Wrap" FontSize="14"/>
+                                    <Grid Margin="25 3 25 3">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="5*"/>
+                                            <ColumnDefinition Width="5*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Button x:Name="buttonQuestionYes" Content="Да" Margin="5 0 5 0"
+                                                    Click="buttonQuestionYes_Click" FontSize="14"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <Button x:Name="buttonQuestionNo" Content="Нет" Margin="5 0 5 0"
+                                                    Click="buttonQuestionNo_Click" FontSize="14"/>
+                                        </Grid>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="2" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <TextBox x:Name="textboxCheckWord" FontSize="14"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button x:Name="buttonCheckWord" Content="Проверить" Click="buttonCheckWord_Click"
+                            FontSize="14"/>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Button x:Name="buttonNewTask" Content="Новая задача" Click="buttonNewTask_Click"
+                            FontSize="14"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
