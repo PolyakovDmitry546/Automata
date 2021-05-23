@@ -88,6 +88,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ControlModule\ControlPage.xaml.cs">
+      <DependentUpon>ControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlModule\ControlPages.cs" />
+    <Compile Include="ControlModule\StartControlPage.xaml.cs">
+      <DependentUpon>StartControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlModule\TaskControlPage.xaml.cs">
+      <DependentUpon>TaskControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ParseTree.cs" />
     <Compile Include="GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
     </Compile>
@@ -101,6 +112,18 @@
     <Compile Include="TasksPage.xaml.cs">
       <DependentUpon>TasksPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="ControlModule\ControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlModule\StartControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlModule\TaskControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DrawingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,5 +197,6 @@
   <ItemGroup>
     <Content Include="resources\html\TheoryHTMLPage.html" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

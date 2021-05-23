@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using Automata.Core;
 
 namespace Automata
 {
@@ -995,48 +996,6 @@ namespace Automata
 
             this.acceptedStates = newAcceptedStates;
             dtran = newDtran;
-        }
-    }
-
-    public class BinaryTree
-    {
-        private char value;
-        private BinaryTree leftNode;
-        private BinaryTree rightNode;
-
-        public BinaryTree(char value)
-        {
-            this.value = value;
-        }
-
-        public BinaryTree GetLeftChild()
-        {
-            return leftNode;
-        }
-
-        public void SetLeftChild(BinaryTree tree)
-        {
-            leftNode = tree;
-        }
-
-        public BinaryTree GetRightChild()
-        {
-            return rightNode;
-        }
-
-        public void SetRightChild(BinaryTree tree)
-        {
-            rightNode = tree;
-        }
-
-        public void SetValue(char value)
-        {
-            this.value = value;
-        }
-
-        public char GetValue()
-        {
-            return value;
         }
     }
 

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Automata.ControlModule;
 
 namespace Automata
 {
@@ -56,6 +57,12 @@ namespace Automata
             var pages = DataContext as Pages;
             pages.CurrentPage = pages.InformationPage;
         }
+
+        private void buttonControl_Click(object sender, RoutedEventArgs e)
+        {
+            var pages = DataContext as Pages;
+            pages.CurrentPage = pages.ControlPage;
+        }
     }
 
     public class Pages:INotifyPropertyChanged
@@ -66,6 +73,7 @@ namespace Automata
         public TablePage TablePage { get; }
         public TasksPage TasksPage { get; }
         public NavigationPage NavigationPage { get; }
+        public ControlPage ControlPage { get; }
 
         public Page CurrentPage
         {
@@ -87,6 +95,7 @@ namespace Automata
             NavigationPage = new NavigationPage();
             TablePage = new TablePage();
             TasksPage = new TasksPage();
+            ControlPage = new ControlPage();
             CurrentPage = NavigationPage;
         }
 

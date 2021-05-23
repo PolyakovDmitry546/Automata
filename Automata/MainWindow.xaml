@@ -28,6 +28,8 @@
                     FontFamily="Segoe UI Emoji" FontSize="14" Click="buttonExamples_Click"/>
             <Button Content="Задачи" Click="buttonTasks_Click" x:Name="buttonTasks"
                     FontFamily="Segoe UI Emoji" FontSize="14"/>
+            <Button Content="Контроль" Name="buttonControl"
+                    FontFamily="Segoe UI Emoji" FontSize="14" Click="buttonControl_Click"/>
             <Button Content="Теория" x:Name="buttonTheory" 
                     FontFamily="Segoe UI Emoji" FontSize="14" Click="buttonTheory_Click"/>
         </StackPanel>
