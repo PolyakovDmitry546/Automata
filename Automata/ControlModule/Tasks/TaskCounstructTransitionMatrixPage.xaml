@@ -1,0 +1,41 @@
+﻿<Page x:Class="Automata.ControlModule.Tasks.TaskCounstructTransitionMatrixPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Automata.ControlModule.Tasks"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TaskCounstructTransitionMatrixPage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding Path=TaskText}"
+                   TextWrapping="Wrap"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Frame Name="frameGraph" Grid.Column="0"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Label Content="Таблица переходов" HorizontalAlignment="Center"/>
+                    <DataGrid HorizontalGridLinesBrush="DarkGray" 
+                          RowBackground="LightGray" AlternatingRowBackground="White"
+                          ItemsSource="{Binding Path=UserTransitionTable}" Margin="0 15 0 0"/>
+                </StackPanel>
+                <Button Content="Ответить" Width="120" HorizontalAlignment="Center"
+                        Grid.Row="1" VerticalAlignment="Center" Name="buttonAnswer"
+                        Click="buttonAnswer_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -91,12 +91,24 @@
     <Compile Include="ControlModule\ControlPage.xaml.cs">
       <DependentUpon>ControlPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ControlModule\ControlPages.cs" />
+    <Compile Include="ControlModule\ControlPagesController.cs" />
+    <Compile Include="ControlModule\ResultControlPage.xaml.cs">
+      <DependentUpon>ResultControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ControlModule\StartControlPage.xaml.cs">
       <DependentUpon>StartControlPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ControlModule\TaskControlPage.xaml.cs">
       <DependentUpon>TaskControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlModule\Tasks\Task.cs" />
+    <Compile Include="ControlModule\Tasks\TaskConstructTransitionMatrix.cs" />
+    <Compile Include="ControlModule\Tasks\TaskCounstructTransitionMatrixPage.xaml.cs">
+      <DependentUpon>TaskCounstructTransitionMatrixPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlModule\Tasks\TaskSelectState.cs" />
+    <Compile Include="ControlModule\Tasks\TaskSelectStatePage.xaml.cs">
+      <DependentUpon>TaskSelectStatePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\ParseTree.cs" />
     <Compile Include="GraphPage.xaml.cs">
@@ -116,11 +128,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ControlModule\ResultControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ControlModule\StartControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ControlModule\TaskControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlModule\Tasks\TaskCounstructTransitionMatrixPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlModule\Tasks\TaskSelectStatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

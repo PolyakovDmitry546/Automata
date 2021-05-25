@@ -16,21 +16,16 @@ using System.Windows.Shapes;
 namespace Automata.ControlModule
 {
     /// <summary>
-    /// Логика взаимодействия для StartControlPage.xaml
+    /// Логика взаимодействия для ResultControlPage.xaml
     /// </summary>
-    public partial class StartControlPage : Page
+    public partial class ResultControlPage : Page
     {
         ControlPagesController controller;
 
-        public StartControlPage(ControlPagesController controller)
+        public ResultControlPage(ControlPagesController controller)
         {
             InitializeComponent();
             this.controller = controller;
-        }
-
-        private void buttonStartTest_Click(object sender, RoutedEventArgs e)
-        {
-            controller.ToTask();
         }
     }
 }

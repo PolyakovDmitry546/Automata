@@ -20,10 +20,12 @@ namespace Automata.ControlModule
     /// </summary>
     public partial class ControlPage : Page
     {
+        private ControlPagesController controller;
         public ControlPage()
         {
             InitializeComponent();
-            DataContext = new ControlPages(this);
+            controller = new ControlPagesController(frameControl);
+            controller.ToStart();
         }
     }
 }

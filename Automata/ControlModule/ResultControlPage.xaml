@@ -1,4 +1,4 @@
-﻿<Page x:Class="Automata.ControlModule.ControlPage"
+﻿<Page x:Class="Automata.ControlModule.ResultControlPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:Automata.ControlModule"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ControlPage">
+      Title="ResultControlPage">
 
     <Grid Background="White">
-        <Frame Name="frameControl"/>
+        <Label Content="Конец тестирования"/>
     </Grid>
 </Page>

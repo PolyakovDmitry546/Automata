@@ -9,6 +9,30 @@
       Title="TaskControlPage">
 
     <Grid Background="White">
-        <Label Name="labelTimer" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Frame Grid.Column="0" Name="frameTask"/>
+            <StackPanel Grid.Column="1">
+                <Label Content="Оставшееся время" HorizontalAlignment="Center" FontSize="16"/>
+                <Label Name="labelTimer" HorizontalAlignment="Center" Content="00:00"
+                       FontSize="18"/>
+                <StackPanel Name="stackPanelTasks" Margin="0 15 0 0"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1">
+            <Button Content="Назад" VerticalAlignment="Center" Name="buttonBack"
+                    Padding="8" Width="150" Margin="5 0 10 0" Click="buttonBack_Click"/>
+            <Button Content="Далее" VerticalAlignment="Center" Name="buttonNext"
+                    Padding="8" Width="150" Margin="5 0 30 0" Click="buttonNext_Click"/>
+            <Button Content="Завершить" VerticalAlignment="Center" Name="buttonFinish"
+                    Padding="8" Width="150" Margin="5 0 30 0" Click="buttonFinish_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

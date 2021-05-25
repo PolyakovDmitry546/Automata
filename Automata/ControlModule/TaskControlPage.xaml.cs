@@ -21,12 +21,14 @@ namespace Automata.ControlModule
     /// </summary>
     public partial class TaskControlPage : Page
     {
+        ControlPagesController controller;
         int timerBalance;
         DispatcherTimer timer;
 
-        public TaskControlPage()
+        public TaskControlPage(ControlPagesController controller)
         {
             InitializeComponent();
+            this.controller = controller;
             InitTimer();
         }
 
@@ -50,7 +52,23 @@ namespace Automata.ControlModule
             else
             {
                 timer.Stop();
+                controller.ToResult();
             }
+        }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            controller.PreviousTask();
+        }
+
+        private void buttonNext_Click(object sender, RoutedEventArgs e)
+        {
+            controller.NextTask();
+        }
+
+        private void buttonFinish_Click(object sender, RoutedEventArgs e)
+        {
+            controller.ToResult();
         }
     }
 }

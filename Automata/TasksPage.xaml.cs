@@ -45,34 +45,22 @@ namespace Automata
             return userGraphTabel;
         }
 
-        private string GenerateRandomWord(GraphTable graphTable)
-        {
-            var random = new Random();
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 0; i < random.Next(5, 9); i++)
-            {
-                stringBuilder.Append(graphTable.alphabet.ElementAt(random.Next(graphTable.alphabet.Count)));
-            }
-
-            return stringBuilder.ToString();
-        }
-
         private void buttonNewTask_Click(object sender, RoutedEventArgs e)
         {
             graphTable = new GraphTable();
             var random = new Random();
-            graphTable.Generate(random.Next(3, 6), random.Next(3, 7), random.Next(1, 4));
+            graphTable.RandomGenerate();
             var graphPage = DataContext as GraphPage;
             graphPage.ShowGraph(graphTable);
 
-            wordForCheck = GenerateRandomWord(graphTable);
+            wordForCheck = graphTable.GenerateWord();
             textBlockTask.Text = "Задан конечный автомат-распознаватель диаграммой Мура. " +
                 $"Построить таблицу переходов. На входе слово {wordForCheck}. " +
                 "В каком состоянии автомат закончит обработку входного слова?";
 
             transitionTable.DataContext = CreateUserGraphTable(graphTable);
 
-            questionWord = GenerateRandomWord(graphTable);
+            questionWord = graphTable.GenerateWord();
             textBlockQuestion.Text = $"Распознает ли автомат слово {questionWord}?";
         }
 
@@ -81,35 +69,6 @@ namespace Automata
             var text = textboxCheckWord.Text;
             var graphPage = DataContext as GraphPage;
             await Task.Run(() => graphPage.CheckWord(text));
-        }
-
-        private bool CompareTables(GraphTable graphTable, DataTable userGraphTabel)
-        {
-            if (graphTable == null || userGraphTabel == null)
-                return false;
-
-            if (graphTable.columnsCount != userGraphTabel.Columns.Count - 1)
-                return false;
-
-            if (graphTable.rowsCount != userGraphTabel.Rows.Count)
-                return false;
-
-            for(int i = 0; i < graphTable.rowsCount; i++)
-            {
-                if ((String)userGraphTabel.Rows[i]["Состояние"] != i.ToString())
-                    return false;
-                for(int j = 0; j < graphTable.columnsCount; j++)
-                {
-                    char ch = (char)((int)'a' + j);
-                    if (graphTable.dtran[(i, ch)].ToString() 
-                        != (String)userGraphTabel.Rows[i][ch.ToString()])
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return true;
         }
 
         private void SetButtonRight(Button button)
@@ -197,7 +156,7 @@ namespace Automata
             if (graphTable == null || userGraphTabel == null)
                 return;
 
-            if (CompareTables(graphTable, userGraphTabel))
+            if (graphTable.Compare(userGraphTabel))
             {
                 SetButtonRight(buttonCheckTransitionTable);
             }
@@ -207,17 +166,6 @@ namespace Automata
             }
         }
 
-        private int GetState(string word, GraphTable table)
-        {
-            var state = 0;
-            foreach(var ch in word)
-            {
-                state = table.dtran[(state, ch)];
-            }
-
-            return state;
-        }
-
         private void buttonStateCheck_Click(object sender, RoutedEventArgs e)
         {
             var userState = textBoxState.Text;
@@ -225,7 +173,7 @@ namespace Automata
             if (String.IsNullOrEmpty(wordForCheck))
                 return;
 
-            var realyState = GetState(wordForCheck, graphTable);
+            var realyState = graphTable.GetState(wordForCheck);
 
             if(userState == realyState.ToString())
             {
@@ -242,7 +190,7 @@ namespace Automata
             if (String.IsNullOrEmpty(questionWord))
                 return;
 
-            var realyState = GetState(questionWord, graphTable);
+            var realyState = graphTable.GetState(questionWord);
             foreach(var state in graphTable.acceptedStates)
             {
                 if(state == realyState)
@@ -260,7 +208,7 @@ namespace Automata
             if (String.IsNullOrEmpty(questionWord))
                 return;
 
-            var realyState = GetState(questionWord, graphTable);
+            var realyState = graphTable.GetState(questionWord);
             foreach (var state in graphTable.acceptedStates)
             {
                 if (state == realyState)
