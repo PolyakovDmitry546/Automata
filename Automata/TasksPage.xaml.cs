@@ -190,17 +190,14 @@ namespace Automata
             if (String.IsNullOrEmpty(questionWord))
                 return;
 
-            var realyState = graphTable.GetState(questionWord);
-            foreach(var state in graphTable.acceptedStates)
+            if (graphTable.Recognize(questionWord))
             {
-                if(state == realyState)
-                {
-                    SetButtonRight(buttonQuestionYes, "Да");
-                    return;
-                }
+                SetButtonRight(buttonQuestionYes, "Да");
             }
-
-            SetButtonWrong(buttonQuestionYes, "Да");
+            else
+            {
+                SetButtonWrong(buttonQuestionYes, "Да");
+            }
         }
 
         private void buttonQuestionNo_Click(object sender, RoutedEventArgs e)
@@ -208,17 +205,14 @@ namespace Automata
             if (String.IsNullOrEmpty(questionWord))
                 return;
 
-            var realyState = graphTable.GetState(questionWord);
-            foreach (var state in graphTable.acceptedStates)
+            if (graphTable.Recognize(questionWord))
             {
-                if (state == realyState)
-                {
-                    SetButtonWrong(buttonQuestionNo, "Нет");
-                    return;
-                }
+                SetButtonWrong(buttonQuestionNo, "Нет");
             }
-
-            SetButtonRight(buttonQuestionNo, "Нет");
+            else
+            {
+                SetButtonRight(buttonQuestionNo, "Нет");
+            }
         }
     }
 }

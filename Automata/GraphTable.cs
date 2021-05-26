@@ -132,5 +132,19 @@ namespace Automata
 
             return state;
         }
+
+        public bool Recognize(string word)
+        {
+            var state = GetState(word);
+            foreach (var s in acceptedStates)
+            {
+                if (s == state)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

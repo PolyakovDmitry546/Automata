@@ -59,11 +59,13 @@ namespace Automata.ControlModule
             var random = new Random();
             for (int i = 0; i < 5; i++)
             {
-                var n = random.Next(2);
+                var n = random.Next(3);
                 if (n == 0)
                     tasks.Add(new TaskConstructTransitionMatrix(this));
-                else
+                else if (n == 1)
                     tasks.Add(new TaskSelectState(this));
+                else
+                    tasks.Add(new TaskSelectRecognize(this));
                 var button = new Button()
                 {
                     Content = $"Задание {i + 1}",
