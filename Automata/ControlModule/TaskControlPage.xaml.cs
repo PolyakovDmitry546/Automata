@@ -29,12 +29,11 @@ namespace Automata.ControlModule
         {
             InitializeComponent();
             this.controller = controller;
-            InitTimer();
         }
 
-        void InitTimer()
+        public void InitTimer()
         {
-            timerBalance = 60;
+            timerBalance = controller.totalTime;
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -52,6 +51,7 @@ namespace Automata.ControlModule
             else
             {
                 timer.Stop();
+                controller.spentTime = controller.totalTime;
                 controller.ToResult();
             }
         }
@@ -68,6 +68,8 @@ namespace Automata.ControlModule
 
         private void buttonFinish_Click(object sender, RoutedEventArgs e)
         {
+            controller.spentTime = controller.totalTime - timerBalance;
+            timer.Stop();
             controller.ToResult();
         }
     }

@@ -92,6 +92,7 @@
       <DependentUpon>ControlPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ControlModule\ControlPagesController.cs" />
+    <Compile Include="ControlModule\ResultControl.cs" />
     <Compile Include="ControlModule\ResultControlPage.xaml.cs">
       <DependentUpon>ResultControlPage.xaml</DependentUpon>
     </Compile>

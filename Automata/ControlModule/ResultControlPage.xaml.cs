@@ -20,12 +20,17 @@ namespace Automata.ControlModule
     /// </summary>
     public partial class ResultControlPage : Page
     {
-        ControlPagesController controller;
-
-        public ResultControlPage(ControlPagesController controller)
+        ResultControl resultControl;
+        public ResultControlPage(ResultControl resultControl)
         {
             InitializeComponent();
-            this.controller = controller;
+            this.resultControl = resultControl;
+            DataContext = resultControl;
+        }
+
+        private void buttonRestart_Click(object sender, RoutedEventArgs e)
+        {
+            resultControl.Restart();
         }
     }
 }

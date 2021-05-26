@@ -14,6 +14,9 @@ namespace Automata.ControlModule
         private TaskControlPage taskControlPage;
         private ResultControlPage resultControlPage;
 
+        public int totalTime = 150;
+        public int spentTime = 0;
+
         private int currentTaskIndex;
         private int CurrentTaskIndex
         {
@@ -49,7 +52,6 @@ namespace Automata.ControlModule
             this.frame = frame;
             startControlPage = new StartControlPage(this);
             taskControlPage = new TaskControlPage(this);
-            resultControlPage = new ResultControlPage(this);
         }
 
         private void GenerateTasks()
@@ -86,10 +88,11 @@ namespace Automata.ControlModule
             frame.Navigate(startControlPage);
         }
 
-        public void ToTask()
+        public void StartTask()
         {
             GenerateTasks();
             CurrentTaskIndex = 0;
+            taskControlPage.InitTimer();
             frame.Navigate(taskControlPage);
             ToTask(CurrentTaskIndex);
         }
@@ -103,20 +106,30 @@ namespace Automata.ControlModule
             }
         }
 
-        private (int, int) CheckResults()
+        private ResultControl CheckResults()
         {
             int countCorrectAnswer = 0;
-            foreach(var task in tasks)
+            var solvedTaskNumbers = new List<int>();
+            int i = 1;
+            foreach (var task in tasks)
             {
                 if (task.CorrectAnswer)
+                {
                     countCorrectAnswer++;
+                    solvedTaskNumbers.Add(i);
+                }
+                i++;
             }
 
-            return (countCorrectAnswer, tasks.Count);
+            var resultControl = new ResultControl(this, totalTime, spentTime, tasks.Count,
+                countCorrectAnswer, solvedTaskNumbers);
+            resultControl.FormResult();
+            return resultControl;
         }
 
         public void ToResult()
         {
+            resultControlPage = new ResultControlPage(CheckResults());
             frame.Navigate(resultControlPage);
         }
 
@@ -148,6 +161,11 @@ namespace Automata.ControlModule
                         new SolidColorBrush(Color.FromRgb(15, 225, 15));
                 }
             }
+        }
+
+        public void Restart()
+        {
+            ToStart();
         }
     }
 }

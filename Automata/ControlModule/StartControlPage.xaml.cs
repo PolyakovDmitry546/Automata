@@ -30,7 +30,7 @@ namespace Automata.ControlModule
 
         private void buttonStartTest_Click(object sender, RoutedEventArgs e)
         {
-            controller.ToTask();
+            controller.StartTask();
         }
     }
 }
