@@ -23,7 +23,7 @@ namespace Automata.ControlModule
             }
             set
             {
-                if(value == 0)
+                if (value == 0)
                 {
                     taskControlPage.buttonBack.IsEnabled = false;
                 }
@@ -31,7 +31,7 @@ namespace Automata.ControlModule
                 {
                     taskControlPage.buttonBack.IsEnabled = true;
                 }
-                if(value == tasks.Count - 1)
+                if (value == tasks.Count - 1)
                 {
                     taskControlPage.buttonNext.IsEnabled = false;
                 }
@@ -96,11 +96,23 @@ namespace Automata.ControlModule
 
         public void ToTask(int taskIndex)
         {
-            if(taskIndex >=0 && taskIndex <= tasks.Count)
+            if (taskIndex >= 0 && taskIndex <= tasks.Count)
             {
                 CurrentTaskIndex = taskIndex;
                 taskControlPage.frameTask.Navigate(tasks[taskIndex].Page);
             }
+        }
+
+        private (int, int) CheckResults()
+        {
+            int countCorrectAnswer = 0;
+            foreach(var task in tasks)
+            {
+                if (task.CorrectAnswer)
+                    countCorrectAnswer++;
+            }
+
+            return (countCorrectAnswer, tasks.Count);
         }
 
         public void ToResult()

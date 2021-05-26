@@ -114,11 +114,13 @@
     <Compile Include="ControlModule\Tasks\TaskSelectStatePage.xaml.cs">
       <DependentUpon>TaskSelectStatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\DFA.cs" />
+    <Compile Include="Core\NFA.cs" />
     <Compile Include="Core\ParseTree.cs" />
     <Compile Include="GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GraphTable.cs" />
+    <Compile Include="Core\GraphTable.cs" />
     <Compile Include="NavigationPage.xaml.cs">
       <DependentUpon>NavigationPage.xaml</DependentUpon>
     </Compile>

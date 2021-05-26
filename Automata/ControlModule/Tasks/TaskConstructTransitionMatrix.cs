@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
+using Automata.Core;
 
 namespace Automata.ControlModule.Tasks
 {
