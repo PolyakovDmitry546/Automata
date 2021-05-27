@@ -16,21 +16,21 @@ using System.Windows.Shapes;
 namespace Automata
 {
     /// <summary>
-    /// Логика взаимодействия для NavigationPage.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class NavigationPage : Page
+    public partial class MainPage : Page
     {
-        public NavigationPage()
+        public MainPage()
         {
             InitializeComponent();
         }
 
-        private void buttonExample_Click(object sender, RoutedEventArgs e)
+        private void buttonExamples_Click(object sender, RoutedEventArgs e)
         {
             MainController.ToTable();
         }
 
-        private void buttonTraining_Click(object sender, RoutedEventArgs e)
+        private void buttonTasks_Click(object sender, RoutedEventArgs e)
         {
             MainController.ToTasks();
         }
@@ -43,6 +43,11 @@ namespace Automata
         private void buttonTheory_Click(object sender, RoutedEventArgs e)
         {
             MainController.ToTheory();
+        }
+
+        private void buttonMain_Click(object sender, RoutedEventArgs e)
+        {
+            MainController.ToNavigation();
         }
     }
 }

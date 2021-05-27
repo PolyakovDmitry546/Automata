@@ -15,14 +15,14 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" VerticalAlignment="Center">
-            <Button Content="Примеры" Height="40" Width="300" Margin="0 10 0 10"
-                    Name="buttonExample" Click="buttonExample_Click"/>
-            <Button Content="Тренировка" Height="40" Width="300" Margin="0 10 0 10"
-                    Name="buttonTraining" Click="buttonTraining_Click"/>
-            <Button Content="Контроль" Height="40" Width="300" Margin="0 10 0 10"
-                    Name="buttonControl" Click="buttonControl_Click"/>
-            <Button Content="Теория" Height="40" Width="300" Margin="0 10 0 10"
+            <Button Content="Изучить теорию" Height="40" Width="300" Margin="0 10 0 10"
                     Name="buttonTheory" Click="buttonTheory_Click"/>
+            <Button Content="Посмотреть примеры" Height="40" Width="300" Margin="0 10 0 10"
+                    Name="buttonExample" Click="buttonExample_Click"/>
+            <Button Content="Тренировочные задачи" Height="40" Width="300" Margin="0 10 0 10"
+                    Name="buttonTraining" Click="buttonTraining_Click"/>
+            <Button Content="Тестирование" Height="40" Width="300" Margin="0 10 0 10"
+                    Name="buttonControl" Click="buttonControl_Click"/>
         </StackPanel>
     </Grid>
 </Page>
