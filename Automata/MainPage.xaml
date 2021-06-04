@@ -26,14 +26,14 @@
                     </TransformGroup>
                 </Button.RenderTransform>
             </Button>
+            <Button Content="Теория" Name="buttonTheory" 
+                    FontFamily="Segoe UI Emoji" FontSize="14" Click="buttonTheory_Click"/>
             <Button Content="Пример" Name="buttonExamples"
                     FontFamily="Segoe UI Emoji" FontSize="14" Click="buttonExamples_Click"/>
             <Button Content="Задачи" Click="buttonTasks_Click" Name="buttonTasks"
                     FontFamily="Segoe UI Emoji" FontSize="14"/>
             <Button Content="Тестирование" Name="buttonControl"
                     FontFamily="Segoe UI Emoji" FontSize="14" Click="buttonControl_Click"/>
-            <Button Content="Теория" Name="buttonTheory" 
-                    FontFamily="Segoe UI Emoji" FontSize="14" Click="buttonTheory_Click"/>
         </StackPanel>
         <Frame Grid.Column="1" Name="frameContent">
         </Frame>

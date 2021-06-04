@@ -14,7 +14,7 @@ namespace Automata.ControlModule
         private TaskControlPage taskControlPage;
         private ResultControlPage resultControlPage;
 
-        public int totalTime = 150;
+        public int totalTime = 1200;
         public int spentTime = 0;
 
         private int currentTaskIndex;

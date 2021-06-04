@@ -107,6 +107,10 @@
     <Compile Include="ControlModule\Tasks\TaskCounstructTransitionMatrixPage.xaml.cs">
       <DependentUpon>TaskCounstructTransitionMatrixPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ControlModule\Tasks\TaskSelectFromOptional.cs" />
+    <Compile Include="ControlModule\Tasks\TaskSelectFromOptionPage.xaml.cs">
+      <DependentUpon>TaskSelectFromOptionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ControlModule\Tasks\TaskSelectRecognize.cs" />
     <Compile Include="ControlModule\Tasks\TaskSelectRecognizePage.xaml.cs">
       <DependentUpon>TaskSelectRecognizePage.xaml</DependentUpon>
@@ -152,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ControlModule\Tasks\TaskCounstructTransitionMatrixPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlModule\Tasks\TaskSelectFromOptionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
