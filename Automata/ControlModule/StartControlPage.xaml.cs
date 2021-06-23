@@ -26,6 +26,14 @@ namespace Automata.ControlModule
         {
             InitializeComponent();
             this.controller = controller;
+            if(MainController.userId == -1)
+            {
+                textBlockStartTest.Text = "Для отправки результатов контроля необходимо авторизироваться";
+            }
+            else
+            {
+                textBlockStartTest.Text = "";
+            }
         }
 
         private void buttonStartTest_Click(object sender, RoutedEventArgs e)

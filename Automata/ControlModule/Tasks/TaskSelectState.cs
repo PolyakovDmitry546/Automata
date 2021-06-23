@@ -14,6 +14,7 @@ namespace Automata.ControlModule.Tasks
         public TaskSelectState(ControlPagesController controller) : base(controller)
         {
             InitTask();
+            type = 1;
             Page = new TaskSelectStatePage(this);
         }
 

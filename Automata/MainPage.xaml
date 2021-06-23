@@ -32,10 +32,19 @@
                     FontFamily="Segoe UI Emoji" FontSize="14" Click="buttonExamples_Click"/>
             <Button Content="Задачи" Click="buttonTasks_Click" Name="buttonTasks"
                     FontFamily="Segoe UI Emoji" FontSize="14"/>
-            <Button Content="Тестирование" Name="buttonControl"
+            <Button Content="Контроль" Name="buttonControl"
                     FontFamily="Segoe UI Emoji" FontSize="14" Click="buttonControl_Click"/>
         </StackPanel>
-        <Frame Grid.Column="1" Name="frameContent">
-        </Frame>
+        <Grid Grid.Column="1" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="28px"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right"
+                        Name="loginStackPanel">
+            </StackPanel>
+            <Frame Grid.Row="1" Name="frameContent">
+            </Frame>
+        </Grid>
     </Grid>
 </Page>

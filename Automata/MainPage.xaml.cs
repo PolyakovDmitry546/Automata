@@ -49,5 +49,51 @@ namespace Automata
         {
             MainController.ToNavigation();
         }
+
+        private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new LoginWindow();
+            window.ShowDialog();
+        }
+
+        private void buttonSignin_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new RegisterWindow();
+            window.Register();
+            window.ShowDialog();
+        }
+
+        public void LogoutInit()
+        {
+            loginStackPanel.Children.Clear();
+            var logoutButton = new Button();
+            logoutButton.Content = "Выйти";
+            logoutButton.Click += buttonLogout_Click;
+            logoutButton.Width = 120;
+            logoutButton.Margin = new Thickness(5, 3, 5, 3);
+            loginStackPanel.Children.Add(logoutButton);
+        }
+
+        public void LoginInit()
+        {
+            loginStackPanel.Children.Clear();
+            var signinButton = new Button();
+            signinButton.Content = "Зарегистрироваться";
+            signinButton.Click += buttonSignin_Click;
+            signinButton.Width = 120;
+            signinButton.Margin = new Thickness(5, 3, 5, 3);
+            loginStackPanel.Children.Add(signinButton);
+            var loginButton = new Button();
+            loginButton.Content = "Войти";
+            loginButton.Click += buttonLogin_Click;
+            loginButton.Width = 120;
+            loginButton.Margin = new Thickness(5, 3, 5, 3);
+            loginStackPanel.Children.Add(loginButton);
+        }
+
+        private void buttonLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MainController.Logout();
+        }
     }
 }

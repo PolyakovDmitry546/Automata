@@ -15,6 +15,7 @@ namespace Automata.ControlModule.Tasks
         public TaskConstructTransitionMatrix(ControlPagesController controller):base(controller)
         {
             InitTask();
+            type = 0;
             Page = new TaskCounstructTransitionMatrixPage(this);
         }
 

@@ -9,6 +9,8 @@ namespace Automata.ControlModule.Tasks
         public bool CorrectAnswer { get; set; }
         public abstract void CheckAnswer();
 
+        public int type;
+
         public Task(ControlPagesController controller)
         {
             CorrectAnswer = false;

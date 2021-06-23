@@ -15,6 +15,7 @@ namespace Automata.ControlModule.Tasks
         public TaskSelectRecognize(ControlPagesController controller) : base(controller)
         {
             InitTask();
+            type = 2;
             Page = new TaskSelectRecognizePage(this);
         }
 

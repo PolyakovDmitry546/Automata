@@ -33,7 +33,7 @@ namespace Automata
                     {
                         if (edge.Source == i.ToString() && edge.Target == table.dtran[(i, symbol)].ToString())
                         {
-                            edge.LabelText += "," + symbol.ToString();
+                            edge.LabelText += "+" + symbol.ToString();
                             addNewEdge = false;
                         }
                     }
@@ -90,6 +90,7 @@ namespace Automata
                 foreach (var edge in notBlackEdges)
                 {
                     edge.Attr.Color = Microsoft.Msagl.Drawing.Color.Black;
+                    edge.Attr.LineWidth = 1;
                 }
                 foreach (var nd in notBlackNodes)
                 {
@@ -107,7 +108,8 @@ namespace Automata
                     {
                         Dispatcher.BeginInvoke((Action)(() =>
                         {
-                            edge.Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+                            edge.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                            edge.Attr.LineWidth = 3;
                         }));
                         node = edge.TargetNode;
                         selfEdge = false;
@@ -129,7 +131,8 @@ namespace Automata
                         {
                             Dispatcher.BeginInvoke((Action)(() =>
                             {
-                                edge.Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+                                edge.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                                edge.Attr.LineWidth = 3;
                             }));
                             System.Threading.Thread.Sleep(1500);
                             Dispatcher.BeginInvoke((Action)(() =>

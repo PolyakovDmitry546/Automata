@@ -110,6 +110,7 @@ namespace Automata.ControlModule
         {
             int countCorrectAnswer = 0;
             var solvedTaskNumbers = new List<int>();
+            var taskTypes = new List<int>();
             int i = 1;
             foreach (var task in tasks)
             {
@@ -118,12 +119,17 @@ namespace Automata.ControlModule
                     countCorrectAnswer++;
                     solvedTaskNumbers.Add(i);
                 }
+                taskTypes.Add(task.type);
                 i++;
             }
 
             var resultControl = new ResultControl(this, totalTime, spentTime, tasks.Count,
                 countCorrectAnswer, solvedTaskNumbers);
             resultControl.FormResult();
+
+            MainController.SendResult(totalTime, spentTime, tasks.Count,
+                solvedTaskNumbers, taskTypes);
+
             return resultControl;
         }
 

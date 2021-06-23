@@ -14,6 +14,8 @@
             <RowDefinition Height="3*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Name="textBlockStartTest"/>
         <Button Content="Начать тестирование" Name="buttonStartTest" Grid.Row="1"
                 VerticalAlignment="Center" HorizontalAlignment="Center"
                 Height="40" Width="200"
