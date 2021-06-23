@@ -146,5 +146,19 @@ namespace Automata.Core
 
             return false;
         }
+
+        public void ConvertToAdditional()
+        {
+            var newAcceptedStates = new List<int>(rowsCount);
+            for(int i = 0; i < rowsCount; i++)
+            {
+                newAcceptedStates.Add(i);
+            }
+            foreach(var i in acceptedStates)
+            {
+                newAcceptedStates.Remove(i);
+            }
+            acceptedStates = newAcceptedStates;
+        }
     }
 }

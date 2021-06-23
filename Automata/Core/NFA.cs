@@ -13,13 +13,6 @@ namespace Automata.Core
         private State source;
         private State target;
 
-        /**
-         * Constructor.
-         *
-         * @param source
-         * @param target
-         *
-         */
         public Edge(State source, State target, char label)
         {
             this.source = source;
@@ -27,25 +20,17 @@ namespace Automata.Core
             this.label = label;
         }
 
-        /**
-         * Return the source of this edge.
-         */
+
         public State getSource()
         {
             return source;
         }
 
-        /**
-         * Return the target of this edge.
-         */
         public State getTarget()
         {
             return target;
         }
 
-        /**
-         * Return the label.
-         */
         public char getLabel()
         {
             return label;
@@ -61,12 +46,6 @@ namespace Automata.Core
         private List<Edge> outLinks = new List<Edge>();
         private List<Edge> inLinks = new List<Edge>();
 
-        /**
-         * Validates whether the this state is an accept state.
-         *
-         * @return the isAccept
-         */
-
         public int Number
         {
             get { return number; }
@@ -78,68 +57,36 @@ namespace Automata.Core
             return acceptState;
         }
 
-        /**
-         * Set this as an accept state.
-         */
         public void makeAccept()
         {
             this.acceptState = true;
         }
 
-        /**
-         * Set as a non-accept state.
-         */
         public void notAccept()
         {
             this.acceptState = false;
         }
 
-        /**
-         * Returns the list of this state's outgoing links (edges).
-         *
-         * @return the outLinks
-         */
         public List<Edge> getOutLinks()
         {
             return outLinks;
         }
 
-        /**
-         * Add a link (edge) to the list of outgoing links (edges).
-         *
-         * @param e the outgoing edge to be added.
-         */
         public void addOutLink(Edge e)
         {
             this.outLinks.Add(e);
         }
 
-        /**
-         * Returns the list of this state's incoming links (edges).
-         *
-         * @return the inLinks
-         */
         public List<Edge> getInLinks()
         {
             return inLinks;
         }
 
-        /**
-         * Add a link (edge) to the list of incoming links.
-         *
-         * @param e the incoming edge to be added.
-         */
         public void addInLink(Edge e)
         {
             this.inLinks.Add(e);
         }
 
-        /**
-         * Checks whether this state contains an outgoing link (edge) labeled x.
-         *
-         * @param x edge to be checked.
-         * @return
-         */
         public bool containsOutLink(char x)
         {
             foreach (Edge e in outLinks)
@@ -152,13 +99,6 @@ namespace Automata.Core
             return false;
         }
 
-        /**
-         * Makes a transition from the current state to the next state through input
-         * character x (edge label), and returns the new state.
-         *
-         * @param x the edge label through which the transition will be made
-         * @return new state
-         */
         public State transition(char x)
         {
 
@@ -174,12 +114,6 @@ namespace Automata.Core
             return ret;
         }
 
-        /**
-         * Returns the source of the edge whose label is passed as an argument.
-         *
-         * @param x edge label
-         * @return source of the edge x that is an inLink for the currentState
-         */
         public State sourceOf(char x)
         {
 
@@ -195,12 +129,6 @@ namespace Automata.Core
             return ret;
         }
 
-        /**
-         * Removes outLink.
-         *
-         * @param x edge label whose corresponding edge will be removed.
-         *
-         */
         public void removeOutLink(char x)
         {
             foreach (Edge e in outLinks)
@@ -221,11 +149,6 @@ namespace Automata.Core
         private int countState = 0;
         SortedSet<char> alphabet = new SortedSet<char>();
 
-        /**
-         * Constructor.
-         *
-         * Creates an empty NFA by instantiating a start state.
-         */
         public NFA()
         {
             initialState = new State();
@@ -241,26 +164,17 @@ namespace Automata.Core
         {
             alphabet.Add(ch);
         }
-        /**
-         * Returns initialState.
-         */
+
         public State getInitialState()
         {
             return initialState;
         }
 
-        /**
-         * Returns currentState.
-         */
         public State getCurrentState()
         {
             return currentState;
         }
 
-        /**
-         * Removes the initial state. Used when connecting a capturing group to the
-         * rest of the automaton.
-         */
         public void removeInitial()
         {
             initialState = null;
