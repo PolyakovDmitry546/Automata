@@ -27,7 +27,7 @@ namespace Automata
 
         private void buttonExample_Click(object sender, RoutedEventArgs e)
         {
-            MainController.ToTable();
+            MainController.ToExample();
         }
 
         private void buttonTraining_Click(object sender, RoutedEventArgs e)

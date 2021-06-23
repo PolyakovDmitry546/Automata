@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 using Microsoft.Msagl.Drawing;
-using Automata.Core;
 
-namespace Automata
+namespace Automata.Core
 {
     /// <summary>
     /// Логика взаимодействия для GraphPage.xaml

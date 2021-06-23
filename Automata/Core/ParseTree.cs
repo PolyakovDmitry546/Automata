@@ -6,23 +6,6 @@ using System.Threading.Tasks;
 
 namespace Automata.Core
 {
-    //class RegexParseTree
-    //{
-    //    public char value;
-    //    public RegexParseTree LeftNode { get; set; }
-    //    public RegexParseTree RightNode { get; set; }
-
-    //    public RegexParseTree(char value)
-    //    {
-    //        this.value = value;
-    //    }
-
-    //    public RegexParseTree(string regex)
-    //    {
-
-    //    }
-    //}
-
     public class BinaryTree
     {
         private char value;

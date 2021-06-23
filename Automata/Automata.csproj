@@ -141,7 +141,7 @@
     <Compile Include="Core\DFA.cs" />
     <Compile Include="Core\NFA.cs" />
     <Compile Include="Core\ParseTree.cs" />
-    <Compile Include="GraphPage.xaml.cs">
+    <Compile Include="Core\GraphPage.xaml.cs">
       <DependentUpon>GraphPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\GraphTable.cs" />
@@ -158,8 +158,8 @@
     <Compile Include="NavigationPage.xaml.cs">
       <DependentUpon>NavigationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TablePage.xaml.cs">
-      <DependentUpon>TablePage.xaml</DependentUpon>
+    <Compile Include="ExaplePage.xaml.cs">
+      <DependentUpon>ExaplePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TasksPage.xaml.cs">
       <DependentUpon>TasksPage.xaml</DependentUpon>
@@ -196,11 +196,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DrawingPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GraphPage.xaml">
+    <Page Include="Core\GraphPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,9 +224,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DrawingPage.xaml.cs">
-      <DependentUpon>DrawingPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="InformftionPage.xaml.cs">
       <DependentUpon>InformftionPage.xaml</DependentUpon>
     </Compile>
@@ -242,7 +235,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TablePage.xaml">
+    <Page Include="ExaplePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

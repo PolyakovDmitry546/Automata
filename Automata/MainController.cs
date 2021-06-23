@@ -18,7 +18,7 @@ namespace Automata
         public static InformftionPage TheoryPage = new InformftionPage();
         public static NavigationPage NavigationPage = new NavigationPage();
         public static MainPage MainPage = new MainPage();
-        public static TablePage TablePage = new TablePage();
+        public static ExamplePage ExamplePage = new ExamplePage();
         public static TasksPage TasksPage = new TasksPage();
         public static ControlPage ControlPage = new ControlPage();
 
@@ -34,10 +34,10 @@ namespace Automata
             mainWindowFrame.Navigate(NavigationPage);
         }
 
-        public static void ToTable()
+        public static void ToExample()
         {
             mainWindowFrame.Navigate(MainPage);
-            MainPage.frameContent.Navigate(TablePage);
+            MainPage.frameContent.Navigate(ExamplePage);
         }
 
         public static void ToTasks()

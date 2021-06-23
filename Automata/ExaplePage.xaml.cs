@@ -16,13 +16,13 @@ namespace Automata
     /// <summary>
     /// Логика взаимодействия для TablePage.xaml
     /// </summary>
-    public partial class TablePage : Page
+    public partial class ExamplePage : Page
     {
         GraphPage noMinimazeGraphPage;
         GraphPage minimazeGraphPage;
         DataTable ATable;
 
-        public TablePage()
+        public ExamplePage()
         {
             InitializeComponent();
             noMinimazeGraphPage = new GraphPage();
