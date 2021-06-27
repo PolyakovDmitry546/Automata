@@ -25,9 +25,9 @@ namespace Automata.Core
 
         public GraphTable(Dictionary<(int, char), int> dtran, List<int> acceptedStates, SortedSet<char> alphabet)
         {
-            this.dtran = dtran;
-            this.acceptedStates = acceptedStates;
-            this.alphabet = alphabet;
+            this.dtran = new Dictionary<(int, char), int>(dtran);
+            this.acceptedStates = new List<int>(acceptedStates);
+            this.alphabet = new SortedSet<char>(alphabet);
             this.columnsCount = alphabet.Count;
             this.rowsCount = dtran.Count / alphabet.Count;
         }

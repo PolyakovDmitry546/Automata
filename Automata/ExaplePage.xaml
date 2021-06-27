@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <TextBlock Text="Пример построения автомата распознавателя по регулярному выражению. В правом углу экрана будет построена таблица переходов автомата. В нижней части экрана во вкладке до минимизации будет построен граф автомата до минимизаци, граф автомата после минимизации будет доступен во вкладке после минимизации."
+                <TextBlock Text="Пример построения автомата распознавателя по регулярному выражению. В правом углу экрана будет построена таблица переходов автомата. В нижней части экрана во вкладке до минимизации будет построен граф автомата до минимизаци, граф автомата после минимизации будет доступен во вкладке после минимизации. Граф дополнительного автомата доступен во вкладке дополнительный автомат."
                            TextWrapping="Wrap" Margin="5 5 5 5" FontSize="12"/>
                 <TextBlock Text="Введите регулярное выражение. Допустимые символы a-z, *, (, ), |" 
                            Margin="5 5 5 5" FontSize="14"/>
@@ -55,6 +55,16 @@
                 </TabItem.Header>
                 <TabItem.Content>
                     <Frame x:Name="frameMinimazeGraph"/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Дополнительный автомат</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Frame x:Name="frameAdditionalGraph"/>
                 </TabItem.Content>
             </TabItem>
         </TabControl>

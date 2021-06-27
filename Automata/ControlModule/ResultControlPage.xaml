@@ -10,8 +10,8 @@
 
     <Grid Background="White">
         <StackPanel>
-            <Label Content="Тестирование заврешено"/>
-            <Label Content="Результаты тестированя"/>
+            <Label Content="Контроль заврешен"/>
+            <Label Content="Результаты контроля"/>
             <Label Content="{Binding Path=TaskResultText}"/>
             <Label Content="{Binding Path=TimeResultText}"/>
             <Label Content="{Binding Path=SolvedTasksText}"/>

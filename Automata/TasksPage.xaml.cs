@@ -45,15 +45,29 @@ namespace Automata
             var graphPage = DataContext as GraphPage;
             graphPage.ShowGraph(graphTable);
 
-            wordForCheck = graphTable.GenerateWord();
-            textBlockTask.Text = "Задан конечный автомат-распознаватель диаграммой Мура. " +
-                $"Построить таблицу переходов. На входе слово {wordForCheck}. " +
-                "В каком состоянии автомат закончит обработку входного слова?";
+            var i = random.Next(0, 2);
+            if (i == 0)
+            {
+                wordForCheck = graphTable.GenerateWord();
+                textBlockTask.Text = "Задан конечный автомат-распознаватель диаграммой Мура. " +
+                    $"Построить таблицу переходов.\nНа входе слово {wordForCheck}. " +
+                    "В каком состоянии автомат закончит обработку входного слова?";
 
+                questionWord = graphTable.GenerateWord();
+                textBlockQuestion.Text = $"Распознает ли автомат слово {questionWord}?";
+            }
+            else
+            {
+                graphTable.ConvertToAdditional();
+                wordForCheck = graphTable.GenerateWord();
+                textBlockTask.Text = "Задан конечный автомат-распознаватель диаграммой Мура. " +
+                    $"Построить таблицу переходов дополнительного автомата.\nНа входе слово {wordForCheck}. " +
+                    "В каком состоянии дополнительный автомат закончит обработку входного слова?";
+
+                questionWord = graphTable.GenerateWord();
+                textBlockQuestion.Text = $"Распознает ли дополнительный автомат слово {questionWord}?";
+            }
             transitionTable.DataContext = CreateUserGraphTable(graphTable);
-
-            questionWord = graphTable.GenerateWord();
-            textBlockQuestion.Text = $"Распознает ли автомат слово {questionWord}?";
         }
 
         private async void buttonCheckWord_Click(object sender, RoutedEventArgs e)

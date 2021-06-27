@@ -20,6 +20,7 @@ namespace Automata
     {
         GraphPage noMinimazeGraphPage;
         GraphPage minimazeGraphPage;
+        GraphPage additionalAutomataGraphPage;
         DataTable ATable;
 
         public ExamplePage()
@@ -27,8 +28,10 @@ namespace Automata
             InitializeComponent();
             noMinimazeGraphPage = new GraphPage();
             minimazeGraphPage = new GraphPage();
+            additionalAutomataGraphPage = new GraphPage();
             frameNoMinimazeGraph.Navigate(noMinimazeGraphPage);
             frameMinimazeGraph.Navigate(minimazeGraphPage);
+            frameAdditionalGraph.Navigate(additionalAutomataGraphPage);
         }
 
         private void CreateGraphNoMinimaze(GraphTable table)
@@ -39,6 +42,11 @@ namespace Automata
         private void CreateGraphMinimaze(GraphTable table)
         {
             minimazeGraphPage.ShowGraph(table);
+        }
+
+        private void CreateGraphAdditionalAutomata(GraphTable table)
+        {
+            additionalAutomataGraphPage.ShowGraph(table);
         }
 
         private void SetButtonWrongSymbol(Button button)
@@ -131,6 +139,10 @@ namespace Automata
 
                 var graphTableMin = new GraphTable(dFA.dtran, dFA.acceptedStates, testNfa.GetAlphabet());
                 CreateGraphMinimaze(graphTableMin);
+
+                var graphTableAdditionalAutomata = new GraphTable(dFA.dtran, dFA.acceptedStates, testNfa.GetAlphabet());
+                graphTableAdditionalAutomata.ConvertToAdditional();
+                CreateGraphAdditionalAutomata(graphTableAdditionalAutomata);
             }
             catch(Exception)
             { }
@@ -141,6 +153,7 @@ namespace Automata
             var word = wordRegexTextBox.Text;
             Task.Run(() => noMinimazeGraphPage.CheckWord(word));
             Task.Run(() => minimazeGraphPage.CheckWord(word));
+            Task.Run(() => additionalAutomataGraphPage.CheckWord(word));
         }
     }
 }
